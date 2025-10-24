@@ -1,3 +1,17 @@
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // This check is to make sure tools.js loaded first
+    // If it did, toolsData will exist, and we can run the app.
+    if (typeof toolsData !== 'undefined' && toolsData.length > 0) {
+        initializeApp();
+    } else {
+        // This will only show in the browser's F12 console, not on the page.
+        console.error("FATAL ERROR: `toolsData` is not defined or is empty.");
+        console.error("This means the `tools.js` file failed to load, is empty, or has a syntax error.");
+    }
+
+});
+
 // This function contains all the application logic
 function initializeApp() {
 
@@ -190,7 +204,7 @@ function initializeApp() {
     // 2. Mobile Sidebar Toggle
     if (menuToggle) {
         menuToggle.addEventListener('click', () => {
-            sidebar.classList.toggle('active');
+            if (sidebar) sidebar.classList.toggle('active');
         });
     }
 
@@ -198,7 +212,7 @@ function initializeApp() {
     function addSidebarLinkListeners() {
         sidebarLinksContainer.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                if (window.innerWidth <= 900) {
+                if (window.innerWidth <= 900 && sidebar) {
                     sidebar.classList.remove('active');
                 }
             });
@@ -233,23 +247,3 @@ function initializeApp() {
         console.error("Initialization failed: One or more critical HTML elements are missing.");
     }
 }
-
-// === NEW ROBUST STARTUP CHECK ===
-// This waits for the HTML (DOMContentLoaded) and THEN checks if 'tools.js' loaded.
-document.addEventListener('DOMContentLoaded', () => {
-    
-    // Check if toolsData (from tools.js) exists.
-    if (typeof toolsData !== 'undefined' && toolsData.length > 0) {
-        // If yes, run the app.
-        initializeApp();
-    } else {
-        // If no, report the critical error.
-        console.error('FATAL ERROR: `toolsData` is not defined or is empty.');
-        console.error('This means the `tools.js` file failed to load or is empty. Check the file path and network tab.');
-        // You could even write this error to the page
-        document.body.innerHTML = `<div style="color: red; font-size: 24px; padding: 40px; font-family: sans-serif;">
-            FATAL ERROR: Could not load tool database. <br>
-            Please check the browser console (Right-click > Inspect > Console) for details.
-            </div>`;
-    }
-});
