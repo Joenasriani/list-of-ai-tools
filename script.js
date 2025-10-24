@@ -1,19 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // This check is to make sure tools.js loaded first
+    // Check if toolsData loaded
     if (typeof toolsData !== 'undefined' && toolsData.length > 0) {
         initializeApp();
     } else {
         console.error("FATAL ERROR: `toolsData` is not defined or is empty.");
-        console.error("This means the `tools.js` file failed to load, is empty, or has a syntax error.");
     }
 
 });
 
-// This function contains all the application logic
+// Contains all application logic
 function initializeApp() {
 
-    // === Icon Mapping for Categories ===
+    // === Icon Mapping ===
     const categoryIcons = {
         "Business & Enterprise AI": "fa-solid fa-briefcase",
         "Productivity & Collaboration": "fa-solid fa-gears",
@@ -30,25 +29,15 @@ function initializeApp() {
     const menuToggle = document.getElementById('menu-toggle');
     const sidebar = document.getElementById('sidebar');
     const backToTopButton = document.getElementById('back-to-top');
-    
-    // New Dropdown Filter Elements
-    const filterDropdown = document.getElementById('filter-dropdown');
-    const filterToggleButton = document.getElementById('filter-toggle-button');
-    const filterCurrentSelection = document.getElementById('filter-current-selection');
-    const filterTagsList = document.getElementById('filter-tags-list');
-
-    // Store all subcategories for tag generation
-    const allSubcategories = [...new Set(toolsData.map(tool => tool.subcategory))].sort();
 
     /**
-     * Renders the entire tool catalog based on the provided tool data.
+     * Renders the entire tool catalog.
      */
     function renderCatalog(tools) {
-        // Clear only the tool content, not the tag header
-        toolCatalog.querySelectorAll('.category-section').forEach(el => el.remove());
+        toolCatalog.innerHTML = ''; // Clear previous results
         sidebarLinksContainer.innerHTML = '';
         
-        let cardAnimationDelayIndex = 0; // For staggered animation
+        let cardAnimationDelayIndex = 0;
 
         if (tools.length === 0) {
             noResultsMessage.style.display = 'block';
@@ -56,7 +45,7 @@ function initializeApp() {
         }
         noResultsMessage.style.display = 'none';
 
-        // 1. Group tools by category and subcategory
+        // 1. Group tools
         const categories = new Map();
         tools.forEach(tool => {
             if (!categories.has(tool.category)) {
@@ -68,55 +57,54 @@ function initializeApp() {
             categories.get(tool.category).get(tool.subcategory).push(tool);
         });
 
-        // 2. Build and inject the HTML
+        // 2. Build HTML
         let isFirstCategory = true;
         for (const [categoryName, subcategories] of categories.entries()) {
             
             const categoryId = categoryName.toLowerCase().replace(/[^a-z0-9]+/g, '-');
             const iconClass = categoryIcons[categoryName] || 'fa-solid fa-atom';
 
-            // A. Create Sidebar Link
+            // A. Sidebar Link
             const sidebarLink = document.createElement('li');
             sidebarLink.innerHTML = `<a href="#${categoryId}"><i class="${iconClass}"></i> ${categoryName}</a>`;
             sidebarLinksContainer.appendChild(sidebarLink);
 
-            // B. Create Main Category Section
+            // B. Category Section
             const categorySection = document.createElement('section');
             categorySection.id = categoryId;
-            // NEW: Add 'expanded' class to the first category
-            categorySection.className = isFirstCategory ? 'category-section expanded' : 'category-section';
+            // First category starts expanded (no .collapsed class)
+            categorySection.className = isFirstCategory ? 'category-section' : 'category-section collapsed';
 
-            // C. Create Category Header (now a button for the drawer)
+            // C. Category Header (Clickable Title)
             const categoryHeader = document.createElement('h2');
             categoryHeader.innerHTML = `
                 <span><i class="${iconClass}"></i> ${categoryName}</span>
-                <i class="fa-solid fa-chevron-down drawer-chevron"></i>
+                <i class="fa-solid fa-chevron-down collapse-chevron"></i> 
             `;
-            // NEW: Add click listener for the drawer
+            // Add click listener to toggle collapse
             categoryHeader.addEventListener('click', () => {
-                categorySection.classList.toggle('expanded');
+                categorySection.classList.toggle('collapsed');
             });
             categorySection.appendChild(categoryHeader);
 
-            // D. Create the content wrapper for the drawer
+            // D. Content Wrapper (This collapses/expands)
             const categoryContent = document.createElement('div');
             categoryContent.className = 'category-content';
 
-            // E. Create Subcategory Sections
+            // E. Subcategories & Grids
             for (const [subcategoryName, toolList] of subcategories.entries()) {
                 const subcategoryTitle = document.createElement('h3');
                 subcategoryTitle.className = 'subcategory-title';
                 subcategoryTitle.textContent = subcategoryName;
-                categoryContent.appendChild(subcategoryTitle); // Add to content wrapper
+                categoryContent.appendChild(subcategoryTitle); 
 
                 const toolGrid = document.createElement('div');
                 toolGrid.className = 'tool-grid';
 
-                // F. Create Tool Cards
+                // F. Tool Cards
                 toolList.forEach(tool => {
                     const toolCard = document.createElement('div');
                     toolCard.className = 'tool-card';
-                    
                     toolCard.style.animationDelay = `${cardAnimationDelayIndex * 0.04}s`;
                     cardAnimationDelayIndex++;
                     
@@ -129,77 +117,15 @@ function initializeApp() {
                     `;
                     toolGrid.appendChild(toolCard);
                 });
-
-                categoryContent.appendChild(toolGrid); // Add to content wrapper
+                categoryContent.appendChild(toolGrid); 
             }
-            categorySection.appendChild(categoryContent); // Add wrapper to section
-            toolCatalog.appendChild(categorySection); // Add section to page
+            categorySection.appendChild(categoryContent); 
+            toolCatalog.appendChild(categorySection); 
             
-            isFirstCategory = false; // Only first category is expanded
+            isFirstCategory = false; 
         }
         
         addSidebarLinkListeners();
-    }
-
-    /**
-     * Generates the clickable filter tags inside the dropdown
-     */
-    function renderFilterTags() {
-        filterTagsList.innerHTML = ''; // Clear existing tags
-        
-        // 1. Create "All" tag
-        const allTag = document.createElement('button');
-        allTag.className = 'filter-tag active'; // Active by default
-        allTag.textContent = 'All Tools';
-        allTag.dataset.filter = 'All';
-        filterTagsList.appendChild(allTag);
-
-        // 2. Create tags for each subcategory
-        allSubcategories.forEach(subcategory => {
-            const tag = document.createElement('button');
-            tag.className = 'filter-tag';
-            tag.textContent = subcategory;
-            tag.dataset.filter = subcategory;
-            filterTagsList.appendChild(tag);
-        });
-
-        // 3. Add click listener to the tag list (event delegation)
-        filterTagsList.addEventListener('click', (e) => {
-            if (e.target.classList.contains('filter-tag')) {
-                handleTagClick(e.target);
-            }
-        });
-    }
-
-    /**
-     * Handles the logic when a filter tag is clicked
-     */
-    function handleTagClick(clickedTag) {
-        // 1. Update active state in list
-        filterTagsList.querySelectorAll('.filter-tag').forEach(tag => {
-            tag.classList.remove('active');
-        });
-        clickedTag.classList.add('active');
-        
-        // 2. Update toggle button text
-        filterCurrentSelection.textContent = clickedTag.textContent;
-
-        // 3. Close the dropdown
-        filterTagsList.classList.remove('active');
-        filterToggleButton.classList.remove('active');
-
-        // 4. Get filter value and clear search bar
-        const filter = clickedTag.dataset.filter;
-        searchBar.value = ''; // Clear search
-
-        // 5. Filter tools and re-render
-        let filteredTools;
-        if (filter === 'All') {
-            filteredTools = toolsData;
-        } else {
-            filteredTools = toolsData.filter(tool => tool.subcategory === filter);
-        }
-        renderCatalog(filteredTools);
     }
 
     // === Event Listeners ===
@@ -208,20 +134,16 @@ function initializeApp() {
     searchBar.addEventListener('keyup', (e) => {
         const searchTerm = e.target.value.toLowerCase();
         
-        // Reset dropdown to "All Tools"
-        filterTagsList.querySelectorAll('.filter-tag').forEach(tag => {
-            tag.classList.remove('active');
-        });
-        const allTag = filterTagsList.querySelector('.filter-tag[data-filter="All"]');
-        if (allTag) allTag.classList.add('active');
-        filterCurrentSelection.textContent = 'All Tools';
-
-        // Filter and re-render
         const filteredTools = toolsData.filter(tool => {
             return tool.name.toLowerCase().includes(searchTerm) ||
                    tool.description.toLowerCase().includes(searchTerm);
         });
+        
+        // When searching, re-render and expand all categories
         renderCatalog(filteredTools);
+        document.querySelectorAll('.category-section').forEach(section => {
+             section.classList.remove('collapsed'); // Expand all when searching
+        });
     });
 
     // 2. Mobile Sidebar Toggle
@@ -230,25 +152,8 @@ function initializeApp() {
             if (sidebar) sidebar.classList.toggle('active');
         });
     }
-    
-    // 3. NEW: Dropdown Toggle Button
-    if (filterToggleButton) {
-        filterToggleButton.addEventListener('click', (e) => {
-            e.stopPropagation(); // Prevents "click outside" from firing
-            filterTagsList.classList.toggle('active');
-            filterToggleButton.classList.toggle('active');
-        });
-    }
 
-    // 4. NEW: Click outside to close dropdown
-    window.addEventListener('click', () => {
-        if (filterTagsList.classList.contains('active')) {
-            filterTagsList.classList.remove('active');
-            filterToggleButton.classList.remove('active');
-        }
-    });
-
-    // 5. Close sidebar on link click (for mobile)
+    // 3. Close sidebar on link click (for mobile)
     function addSidebarLinkListeners() {
         sidebarLinksContainer.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
@@ -259,7 +164,7 @@ function initializeApp() {
         });
     }
 
-    // 6. Back to Top Button Listeners
+    // 4. Back to Top Button Listeners
     if (backToTopButton) {
         window.addEventListener('scroll', () => {
             if (window.scrollY > 300) {
@@ -271,16 +176,12 @@ function initializeApp() {
 
         backToTopButton.addEventListener('click', (e) => {
             e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
     
     // === Initial Page Load ===
-    if (toolCatalog && sidebarLinksContainer && searchBar && noResultsMessage && filterTagsList) {
-        renderFilterTags();   // Build the tags once
+    if (toolCatalog && sidebarLinksContainer && searchBar && noResultsMessage) {
         renderCatalog(toolsData); // Render the full catalog
     } else {
         console.error("Initialization failed: One or more critical HTML elements are missing.");
