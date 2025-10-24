@@ -1,5 +1,6 @@
-document.addEventListener('DOMContentLoaded', () => {
-    
+// This function contains all the application logic
+function initializeApp() {
+
     // === Icon Mapping for Categories ===
     const categoryIcons = {
         "Business & Enterprise AI": "fa-solid fa-briefcase",
@@ -16,8 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const noResultsMessage = document.getElementById('no-results-message');
     const menuToggle = document.getElementById('menu-toggle');
     const sidebar = document.getElementById('sidebar');
-    const filterTagsContainer = document.getElementById('filter-tags'); // New
-    const backToTopButton = document.getElementById('back-to-top');   // New
+    const filterTagsContainer = document.getElementById('filter-tags');
+    const backToTopButton = document.getElementById('back-to-top');
 
     // Store all subcategories for tag generation
     const allSubcategories = [...new Set(toolsData.map(tool => tool.subcategory))].sort();
@@ -85,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const toolCard = document.createElement('div');
                     toolCard.className = 'tool-card';
                     
-                    // NEW: Apply staggered animation delay
+                    // Apply staggered animation delay
                     toolCard.style.animationDelay = `${cardAnimationDelayIndex * 0.04}s`;
                     cardAnimationDelayIndex++;
                     
@@ -167,11 +168,16 @@ document.addEventListener('DOMContentLoaded', () => {
     searchBar.addEventListener('keyup', (e) => {
         const searchTerm = e.target.value.toLowerCase();
         
-        // Deactivate all tags and activate "All"
+        // Deactivate all tags
         filterTagsContainer.querySelectorAll('.filter-tag').forEach(tag => {
             tag.classList.remove('active');
         });
-        filterTagsContainer.querySelector('.filter-tag[data-filter="All"]').classList.add('active');
+        
+        // Activate "All" tag
+        const allTag = filterTagsContainer.querySelector('.filter-tag[data-filter="All"]');
+        if (allTag) {
+            allTag.classList.add('active');
+        }
 
         // Filter and re-render
         const filteredTools = toolsData.filter(tool => {
@@ -182,9 +188,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 2. Mobile Sidebar Toggle
-    menuToggle.addEventListener('click', () => {
-        sidebar.classList.toggle('active');
-    });
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+    }
 
     // 3. Close sidebar on link click (for mobile)
     function addSidebarLinkListeners() {
@@ -198,26 +206,50 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 4. Back to Top Button Listeners
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            backToTopButton.classList.add('visible');
-        } else {
-            backToTopButton.classList.remove('visible');
-        }
-    });
-
-    backToTopButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+    if (backToTopButton) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
         });
-    });
 
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+    
     // === Initial Page Load ===
-    renderFilterTags();   // Build the tags once
-    renderCatalog(toolsData); // Render the full catalog
-});
-    // Render the full catalog when the page first loads
-    renderCatalog(toolsData);
+    // Check if all elements exist before running
+    if (toolCatalog && sidebarLinksContainer && searchBar && noResultsMessage && filterTagsContainer) {
+        renderFilterTags();   // Build the tags once
+        renderCatalog(toolsData); // Render the full catalog
+    } else {
+        console.error("Initialization failed: One or more critical HTML elements are missing.");
+    }
+}
+
+// === NEW ROBUST STARTUP CHECK ===
+// This waits for the HTML (DOMContentLoaded) and THEN checks if 'tools.js' loaded.
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // Check if toolsData (from tools.js) exists.
+    if (typeof toolsData !== 'undefined' && toolsData.length > 0) {
+        // If yes, run the app.
+        initializeApp();
+    } else {
+        // If no, report the critical error.
+        console.error('FATAL ERROR: `toolsData` is not defined or is empty.');
+        console.error('This means the `tools.js` file failed to load or is empty. Check the file path and network tab.');
+        // You could even write this error to the page
+        document.body.innerHTML = `<div style="color: red; font-size: 24px; padding: 40px; font-family: sans-serif;">
+            FATAL ERROR: Could not load tool database. <br>
+            Please check the browser console (Right-click > Inspect > Console) for details.
+            </div>`;
+    }
 });
