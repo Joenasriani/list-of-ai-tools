@@ -31,11 +31,17 @@
             </button>
             <div class="search-container">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" id="search-bar" placeholder="Search all 150+ tools by name or description...">
+                <input type="text" id="search-bar" placeholder="Search all 150+ tools...">
             </div>
         </header>
 
         <main class="tool-catalog" id="tool-catalog">
+            
+            <div class="catalog-header">
+                <div id="filter-tags" class="filter-tags">
+                    </div>
+            </div>
+
             </main>
 
         <div id="no-results-message" class="no-results" style="display: none;">
@@ -43,34 +49,12 @@
             <p>Your search returned no results. Try a different keyword.</p>
         </div>
     </div>
+    
+    <a href="#" id="back-to-top" class="back-to-top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </a>
 
     <script src="tools.js"></script>
-    <script src="script.js"></script>
-
-</body>
-</html>
-                    </div>
-                    <div class="tool-card">
-                        <h4>TripoSR</h4>
-                        <p>Instant 3D from images.</p>
-                        <a href="https://tripo3d.ai" target="_blank" class="tool-link">Visit Site <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
-                    <div class="tool-card">
-                        <h4>Luma Dream Machine</h4>
-                        <p>Video-to-3D capture.</p>
-                        <a href="https://lumalabs.ai/dream-machine" target="_blank" class="tool-link">Visit Site <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
-                </div>
-            </section>
-
-            <div id="no-results-message" class="no-results" style="display: none;">
-                <h3><i class="fa-solid fa-ghost"></i> No Tools Found</h3>
-                <p>Your search returned no results. Try a different keyword.</p>
-            </div>
-
-        </main>
-    </div>
-
     <script src="script.js"></script>
 
 </body>
