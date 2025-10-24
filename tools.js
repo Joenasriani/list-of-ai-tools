@@ -1,5 +1,5 @@
 // This is your "database" file.
-// To add, edit, or remove a tool, you only need to change this file.
+// This version fixes a syntax error that was preventing it from loading.
 
 const toolsData = [
   {
@@ -28,7 +28,7 @@ const toolsData = [
     "subcategory": "AI Voice & Communication Agents",
     "name": "Synthflow AI",
     "description": "Advanced voice agents for cold calling.",
-    "url": "https://synthflow.ai"
+    "url": "httpss://synthflow.ai"
   },
   {
     "category": "Business & Enterprise AI",
@@ -273,7 +273,7 @@ const toolsData = [
     "subcategory": "HR & Recruitment AI",
     "name": "Vervoe",
     "description": "AI skills assessment platform.",
-    "url": "httpss://vervoe.com"
+    "url": "https://vervoe.com"
   },
   {
     "category": "Business & Enterprise AI",
@@ -301,7 +301,7 @@ const toolsData = [
     "subcategory": "Customer Support Platforms",
     "name": "Sierra.ai",
     "description": "Personalized AI customer experience.",
-    "url": "httpss://sierra.ai"
+    "url": "https://sierra.ai"
   },
   {
     "category": "Business & Enterprise AI",
@@ -315,854 +315,854 @@ const toolsData = [
     "subcategory": "Communication & Meeting Intelligence",
     "name": "Shortwave",
     "description": "AI email automation agent.",
-    "url": "httpss://www.shortwave.com"
+    "url": "https://www.shortwave.com"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Communication & Meeting Intelligence",
     "name": "SaneBox",
     "description": "Intelligent inbox filtering.",
-    "url": "httpss://www.sanebox.com"
+    "url": "https://www.sanebox.com"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Communication & Meeting Intelligence",
     "name": "Superhuman",
     "description": "AI-powered email client.",
-    "url": "httpss://superhuman.com"
+    "url": "https://superhuman.com"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Communication & Meeting Intelligence",
     "name": "Lindy Email",
     "description": "Automated email management.",
-    "url": "httpss://www.lindy.ai/tools/ai-email-management"
+    "url": "https://www.lindy.ai/tools/ai-email-management"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Communication & Meeting Intelligence",
     "name": "Otter.ai",
     "description": "Real-time meeting transcription & analysis.",
-    "url": "httpss://otter.ai"
+    "url": "https://otter.ai"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Communication & Meeting Intelligence",
     "name": "Fireflies.ai",
     "description": "Conversation intelligence platform.",
-    "url": "httpss://fireflies.ai"
+    "url": "https://fireflies.ai"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Communication & Meeting Intelligence",
     "name": "Read.ai",
     "description": "Meeting summaries & insights.",
-    "url": "httpss://www.read.ai"
+    "url": "https://www.read.ai"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Communication & Meeting Intelligence",
     "name": "Tactiq",
     "description": "Real-time meeting transcripts.",
-    "url": "httpss://tactiq.io"
+    "url": "https://tactiq.io"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Communication & Meeting Intelligence",
     "name": "MeetGeek",
     "description": "Automated meeting notes & CRM integration.",
-    "url": "httpss://meetgeek.ai"
+    "url": "https://meetgeek.ai"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Presentations & Documents",
     "name": "Gamma",
     "description": "Free AI presentation maker.",
-    "url": "httpss://gamma.app"
+    "url": "https://gamma.app"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Presentations & Documents",
     "name": "Beautiful.ai",
     "description": "Professional slide creation.",
-    "url": "httpss://www.beautiful.ai"
+    "url": "https://www.beautiful.ai"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Presentations & Documents",
     "name": "Tome",
     "description": "Interactive storytelling presentations.",
-    "url": "httpss://tome.app"
+    "url": "https://tome.app"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Presentations & Documents",
     "name": "Presentations.AI",
     "description": "Enterprise-grade slide generation.",
-    "url": "httpss://www.presentations.ai"
+    "url": "https://www.presentations.ai"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Presentations & Documents",
     "name": "Microsoft Copilot for PowerPoint",
     "description": "Native Office integration.",
-    "url": "httpss://www.microsoft.com/en-us/microsoft-365/copilot"
+    "url": "https://www.microsoft.com/en-us/microsoft-365/copilot"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Writing & Content Generation",
     "name": "Jasper",
     "description": "Enterprise content creation.",
-    "url": "httpss://www.jasper.ai"
+    "url": "https://www.jasper.ai"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Writing & Content Generation",
     "name": "Copy.ai",
     "description": "Marketing copy generation.",
-    "url": "httpss://www.copy.ai"
+    "url": "https://www.copy.ai"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Writing & Content Generation",
     "name": "Writesonic",
     "description": "SEO-focused content creation.",
-    "url": "httpss://writesonic.com"
+    "url": "https://writesonic.com"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Writing & Content Generation",
     "name": "Notion AI",
     "description": "Integrated workspace writing.",
-    "url": "httpss://www.notion.so/product/ai"
+    "url": "https://www.notion.so/product/ai"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Writing & Content Generation",
     "name": "Grammarly Business",
     "description": "Professional writing assistance.",
-    "url": "httpss://www.grammarly.com/business"
+    "url": "https://www.grammarly.com/business"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Writing & Content Generation",
     "name": "Phraser",
     "description": "Prompt engineering.",
-    "url": "httpss://phraser.tech"
+    "url": "https://phraser.tech"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Document Intelligence & Data Extraction",
     "name": "Unstructured IO",
     "description": "Text extraction / Doc processing.",
-    "url": "httpss://unstructured.io"
+    "url": "https://unstructured.io"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Document Intelligence & Data Extraction",
     "name": "Nanonets OCR",
     "description": "Handwriting.",
-    "url": "httpss://nanonets.com/ocr"
+    "url": "https://nanonets.com/ocr"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Document Intelligence & Data Extraction",
     "name": "Infranodus",
     "description": "Text networks.",
-    "url": "httpss://infranodus.com"
+    "url": "https://infranodus.com"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Document Intelligence & Data Extraction",
     "name": "Docugami",
     "description": "Document mapping.",
-    "url": "httpss://docugami.com"
+    "url": "https://docugami.com"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Document Intelligence & Data Extraction",
     "name": "Affinda",
     "description": "Parsing.",
-    "url": "httpss://affinda.com"
+    "url": "https://affinda.com"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Document Intelligence & Data Extraction",
     "name": "Deep Cognition",
     "description": "Understanding.",
-    "url": "httpss://deepcognition.ai"
+    "url": "https://deepcognition.ai"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Document Intelligence & Data Extraction",
     "name": "ChatDOC",
     "description": "Q&A docs.",
-    "url": "httpss://chatdoc.com"
+    "url": "https://chatdoc.com"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Document Intelligence & Data Extraction",
     "name": "Shelf AI",
     "description": "Auto-tagging.",
-    "url": "httpss://shelf.io/ai"
+    "url": "https://shelf.io/ai"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Document Intelligence & Data Extraction",
     "name": "DocParser AI",
     "description": "Data extraction.",
-    "url": "httpss://docparser.com/ai"
+    "url": "https://docparser.com/ai"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Document Intelligence & Data Extraction",
     "name": "Extracta",
     "description": "Unstructured data.",
-    "url": "httpss://extracta.ai"
+    "url": "https://extracta.ai"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Document Intelligence & Data Extraction",
     "name": "DocLLM",
     "description": "Document layout.",
-    "url": "httpss://github.com/artidoro/docllm"
+    "url": "https://github.com/artidoro/docllm"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Document Intelligence & Data Extraction",
     "name": "Tabula-X",
     "description": "Table extraction.",
-    "url": "httpss://github.com/tabulapdf/tabula-x"
+    "url": "https://github.com/tabulapdf/tabula-x"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Document Intelligence & Data Extraction",
     "name": "LayoutParser",
     "description": "Document layout.",
-    "url": "httpss://layout-parser.github.io"
+    "url": "https://layout-parser.github.io"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Document Intelligence & Data Extraction",
     "name": "DiffusER",
     "description": "Entity recognition.",
-    "url": "httpss://diffuser.textdata.org"
+    "url": "https://diffuser.textdata.org"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Document Intelligence & Data Extraction",
     "name": "FormX",
     "description": "Form parsing.",
-    "url": "httpss://formx.ai"
+    "url": "https://formx.ai"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Document Intelligence & Data Extraction",
     "name": "ScrapeGraphAI",
     "description": "Web extraction.",
-    "url": "httpss://github.com/VinciGit00/Scrapegraph-ai"
+    "url": "https://github.com/VinciGit00/Scrapegraph-ai"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Document Intelligence & Data Extraction",
     "name": "Parsio",
     "description": "Email parsing.",
-    "url": "httpss://parsio.io"
+    "url": "https://parsio.io"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Document Intelligence & Data Extraction",
     "name": "Kado",
     "description": "Document pipelines.",
-    "url": "httpss://kado.ai"
+    "url": "https://kado.ai"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Personal AI Assistants & Cognitive Enhancers",
     "name": "Lindy",
     "description": "Personal AI employee.",
-    "url": "httpss://www.lindy.ai"
+    "url": "https://www.lindy.ai"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Personal AI Assistants & Cognitive Enhancers",
     "name": "Thoughtly",
     "description": "No-code AI phone agents.",
-    "url": "httpss://www.thoughtly.com"
+    "url": "https://www.thoughtly.com"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Personal AI Assistants & Cognitive Enhancers",
     "name": "Microsoft Copilot Studio",
     "description": "Enterprise agent builder.",
-    "url": "httpss://powerapps.microsoft.com/en-us/copilot-studio/"
+    "url": "https://powerapps.microsoft.com/en-us/copilot-studio/"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Personal AI Assistants & Cognitive Enhancers",
     "name": "Zapier Central",
     "description": "AI automation assistant.",
-    "url": "httpss://zapier.com/central"
+    "url": "https://zapier.com/central"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Personal AI Assistants & Cognitive Enhancers",
     "name": "Inflection Pi",
     "description": "Personal AI.",
-    "url": "httpss://inflection.ai/pi"
+    "url": "https://inflection.ai/pi"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Personal AI Assistants & Cognitive Enhancers",
     "name": "SecondBrain",
     "description": "Memory augmentation.",
-    "url": "httpss://secondbrain.fyi"
+    "url": "https://secondbrain.fyi"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Personal AI Assistants & Cognitive Enhancers",
     "name": "PersonalGPT",
     "description": "Local knowledge.",
-    "url": "httpss://github.com/purplex/PersonalGPT"
+    "url": "https://github.com/purplex/PersonalGPT"
   },
   {
     "category": "Productivity & Collaboration",
     "subcategory": "Personal AI Assistants & Cognitive Enhancers",
     "name": "MemGPT",
     "description": "Extended context.",
-    "url": "httpss://memgpt.ai"
+    "url": "https://memgpt.ai"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Image Generation",
     "name": "Draw Things",
     "description": "iOS image gen.",
-    "url": "httpss://drawthings.ai"
+    "url": "https://drawthings.ai"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Image Generation",
     "name": "Krea Real-Time",
     "description": "Live canvas.",
-    "url": "httpss://app.krea.ai"
+    "url": "https://app.krea.ai"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Image Generation",
     "name": "Vizcom",
     "description": "Industrial design.",
-    "url": "httpss://vizcom.ai"
+    "url": "https://vizcom.ai"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Image Generation",
     "name": "Illusion Diffusion",
     "description": "Optical art.",
-    "url": "httpss://huggingface.co/spaces/jiwoo-choi/Illusion-Diffusion"
+    "url": "https://huggingface.co/spaces/jiwoo-choi/Illusion-Diffusion"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Image Generation",
     "name": "SeaArt",
     "description": "Historical art.",
-    "url": "httpss://seaart.ai/create"
+    "url": "https://seaart.ai/create"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Image Generation",
     "name": "Holara",
     "description": "Anime.",
-    "url": "httpss://holara.ai"
+    "url": "https://holara.ai"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Image Generation",
     "name": "Niji V6",
     "description": "Next-gen anime.",
-    "url": "httpss://nijijourney.com/en"
+    "url": "https://nijijourney.com/en"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Image Generation",
     "name": "Mage Gen",
     "description": "Materials.",
-    "url": "httpss://mage.space/generator"
+    "url": "https://mage.space/generator"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Image Generation",
     "name": "Albus",
     "description": "3D scenes.",
-    "url": "httpss://albus.org"
+    "url": "https://albus.org"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Image Generation",
     "name": "Neural Painters",
     "description": "Algorithmic art.",
-    "url": "httpss://neuralpainters.com"
+    "url": "https://neuralpainters.com"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Image Generation",
     "name": "Optimo",
     "description": "Image optimization.",
-    "url": "httpss://optimo.ai"
+    "url": "https://optimo.ai"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Video Synthesis & Animation",
     "name": "Deforum",
     "description": "Algorithmic animation.",
-    "url": "httpss://deforum.art"
+    "url": "https://deforum.art"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Video Synthesis & Animation",
     "name": "DragNUWA",
     "description": "Trajectory control.",
-    "url": "httpss://github.com/ProjectNUWA/DragNUWA"
+    "url": "https://github.com/ProjectNUWA/DragNUWA"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Video Synthesis & Animation",
     "name": "Animate Anyone",
     "description": "Pose-driven.",
-    "url": "httpss://humanaigc.github.io/animate-anyone"
+    "url": "https://humanaigc.github.io/animate-anyone"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Video Synthesis & Animation",
     "name": "Motion Brush",
     "description": "Region animation.",
-    "url": "httpss://huggingface.co/spaces/PAIR/Text2Video-Zero"
+    "url": "https://huggingface.co/spaces/PAIR/Text2Video-Zero"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Video Synthesis & Animation",
     "name": "MagicAnimate",
     "description": "Photo-to-dance.",
-    "url": "httpss://showlab.github.io/magicanimate"
+    "url": "https://showlab.github.io/magicanimate"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Video Synthesis & Animation",
     "name": "DynIBaR",
     "description": "Neural views.",
-    "url": "httpss://dynibar.github.io"
+    "url": "https://dynibar.github.io"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Video Synthesis & Animation",
     "name": "Pixbim Animate",
     "description": "3D from photos.",
-    "url": "httpss://pixbim.com/animate-photos-ai"
+    "url": "https://pixbim.com/animate-photos-ai"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Video Synthesis & Animation",
     "name": "CogVideo",
     "description": "Chinese video.",
-    "url": "httpss://github.com/THUDM/CogVideo"
+    "url": "https://github.com/THUDM/CogVideo"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Video Synthesis & Animation",
     "name": "VideoPoet",
     "description": "Zero-shot.",
-    "url": "httpss://videopoet.github.io"
+    "url": "https://videopoet.github.io"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Video Synthesis & Animation",
     "name": "Zoo Diffusion",
     "description": "Character consistency.",
-    "url": "httpss://zoodiffusion.com"
+    "url": "https://zoodiffusion.com"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Video Synthesis & Animation",
     "name": "MuseV",
     "description": "Virtual humans.",
-    "url": "httpss://musev.io"
+    "url": "https://musev.io"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Video Synthesis & Animation",
     "name": "StableMoFusion",
     "description": "Motion generation.",
-    "url": "httpss://github.com/Stability-AI/StableMoFusion"
+    "url": "https://github.com/Stability-AI/StableMoFusion"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Video Synthesis & Animation",
     "name": "Runway Gen-2",
     "description": "Text/image to video.",
-    "url": "httpss://runwayml.com/gen-2"
+    "url": "https://runwayml.com/gen-2"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Audio & Voice",
     "name": "Sonauto",
     "description": "Text-to-synth.",
-    "url": "httpss://sonauto.ai"
+    "url": "https://sonauto.ai"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Audio & Voice",
     "name": "AlterVoice",
     "description": "Emotion control.",
-    "url": "httpss://altervoice.co"
+    "url": "https://altervoice.co"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Audio & Voice",
     "name": "Kits Vocal Lab",
     "description": "Voice cloning.",
-    "url": "httpss://kits.ai/vocal-lab"
+    "url": "https://kits.ai/vocal-lab"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Audio & Voice",
     "name": "Moises Stems",
     "description": "Track isolation.",
-    "url": "httpss://moises.ai/stems"
+    "url": "https://moises.ai/stems"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Audio & Voice",
     "name": "SoundStorm",
     "description": "Parallel audio.",
-    "url": "httpss://soundstorm-pytorch.github.io"
+    "url": "https://soundstorm-pytorch.github.io"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Audio & Voice",
     "name": "LALAL Cleaner",
     "description": "Noise removal.",
-    "url": "httpss://lalal.ai/voice-cleaner"
+    "url": "https://lalal.ai/voice-cleaner"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Audio & Voice",
     "name": "AudioCraft Agent",
     "description": "Meta's toolkit.",
-    "url": "httpss://github.com/facebookresearch/audiocraft_agent"
+    "url": "https://github.com/facebookresearch/audiocraft_agent"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Audio & Voice",
     "name": "VocalRemover Pro",
     "description": "Stem extraction.",
-    "url": "httpss://vocalremoverpro.com"
+    "url": "https://vocalremoverpro.com"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Audio & Voice",
     "name": "PlayHT Radio",
     "description": "AI talk radio.",
-    "url": "httpss://play.ht/radio"
+    "url": "https://play.ht/radio"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Audio & Voice",
     "name": "Loops AI",
     "description": "Stem reconstruction.",
-    "url": "httpss://loops.ai"
+    "url": "https://loops.ai"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Audio & Voice",
     "name": "PrivaScribe",
     "description": "Speech redaction.",
-    "url": "httpss://privascribe.com"
+    "url": "https://privascribe.com"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Audio & Voice",
     "name": "AudioSep",
     "description": "Sound separation.",
-    "url": "httpss://audiosep.github.io"
+    "url": "https://audiosep.github.io"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Audio & Voice",
     "name": "StyleTTS 2",
     "description": "Zero-shot TTS.",
-    "url": "httpss://github.com/yl4579/StyleTTS2"
+    "url": "https://github.com/yl4579/StyleTTS2"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Audio & Voice",
     "name": "SonicMapper",
     "description": "Audio fingerprinting.",
-    "url": "httpss://sonicmapper.ai"
+    "url": "https://sonicmapper.ai"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Audio & Voice",
     "name": "Respeecher",
     "description": "Voice cloning for characters.",
-    "url": "httpss://respeecher.com"
+    "url": "https://respeecher.com"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Audio & Voice",
     "name": "OpenVoice OS",
     "description": "Voice interface.",
-    "url": "httpss://openvoiceos.com"
+    "url": "https://openvoiceos.com"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Podcast & Audio Production",
     "name": "Riverside.fm",
     "description": "HD recording + AI editing.",
-    "url": "httpss://riverside.com"
+    "url": "https://riverside.com"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Podcast & Audio Production",
     "name": "Descript",
     "description": "Text-based audio/video editing.",
-    "url": "httpss://descript.com"
+    "url": "https://descript.com"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Podcast & Audio Production",
     "name": "Podcastle",
     "description": "Complete podcast creation suite.",
-    "url": "httpss://podcastle.ai"
+    "url": "https://podcastle.ai"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Podcast & Audio Production",
     "name": "CoHost",
     "description": "Automated transcription & distribution.",
-    "url": "httpss://www.cohostpodcasting.com"
+    "url": "https://www.cohostpodcasting.com"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Podcast & Audio Production",
     "name": "Glyph AI",
     "description": "Podcast transcription & analysis.",
-    "url": "httpss://www.joinglyph.com"
+    "url": "https://www.joinglyph.com"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Cross-Media & Specialized Converters",
     "name": "Glyph-ByT5",
     "description": "Text-to-vector.",
-    "url": "httpss://github.com/facebookresearch/glyph-byt5"
+    "url": "https://github.com/facebookresearch/glyph-byt5"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Cross-Media & Specialized Converters",
     "name": "Pix2Pix3D",
     "description": "2D to 3D.",
-    "url": "httpss://github.com/3DTopia/3DTopia"
+    "url": "https://github.com/3DTopia/3DTopia"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Cross-Media & Specialized Converters",
     "name": "Music2Image",
     "description": "Audio visual.",
-    "url": "httpss://huggingface.co/spaces/fffiloni/Music-to-Image"
+    "url": "https://huggingface.co/spaces/fffiloni/Music-to-Image"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Cross-Media & Specialized Converters",
     "name": "InstaVerse",
     "description": "Image to 3D world.",
-    "url": "httpss://github.com/microsoft/InstaVerse"
+    "url": "https://github.com/microsoft/InstaVerse"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Cross-Media & Specialized Converters",
     "name": "AudioLDM 2",
     "description": "Text to audio.",
-    "url": "httpss://audioldm.github.io/audioldm2"
+    "url": "https://audioldm.github.io/audioldm2"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Cross-Media & Specialized Converters",
     "name": "GeneFace++",
     "description": "Audio to lip-sync.",
-    "url": "httpss://genefaceplusplus.github.io"
+    "url": "https://genefaceplusplus.github.io"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Cross-Media & Specialized Converters",
     "name": "StyleDrop",
     "description": "Text-guided style.",
-    "url": "httpss://styledrop.github.io"
+    "url": "https://styledrop.github.io"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Cross-Media & Specialized Converters",
     "name": "Make-A-Scene",
     "description": "Sketch to image.",
-    "url": "httpss://makeascene.ai"
+    "url": "https://makeascene.ai"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Cross-Media & Specialized Converters",
     "name": "OmniAvatar",
     "description": "Motion cloning.",
-    "url": "httpss://omni-avatar.github.io"
+    "url": "https://omni-avatar.github.io"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Cross-Media & Specialized Converters",
     "name": "AnimateDiff",
     "description": "Motion modules.",
-    "url": "httpss://github.com/guoyww/AnimateDiff"
+    "url": "https://github.com/guoyww/AnimateDiff"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Cross-Media & Specialized Converters",
     "name": "LeiaPix Converter",
     "description": "2D-3D holograms.",
-    "url": "httpss://convert.leiapix.com"
+    "url": "https://convert.leiapix.com"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Cross-Media & Specialized Converters",
     "name": "Pika Artifacts",
     "description": "Video 3D animation.",
-    "url": "httpss://pika.art/artifacts"
+    "url": "https://pika.art/artifacts"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Cross-Media & Specialized Converters",
     "name": "Kinetix",
     "description": "Video 3D avatars.",
-    "url": "httpss://kinetix.tech"
+    "url": "https://kinetix.tech"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Cross-Media & Specialized Converters",
     "name": "DeepMotion Animate 3D",
     "description": "Video rigged models.",
-    "url": "httpss://deepmotion.com/animate-3d"
+    "url": "https://deepmotion.com/animate-3d"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Cross-Media & Specialized Converters",
     "name": "Plask MoCap",
     "description": "Video to motion data.",
-    "url": "httpss://plask.ai"
+    "url": "https://plask.ai"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Cross-Media & Specialized Converters",
     "name": "Rokoko Video",
     "description": "Pose estimation.",
-    "url": "httpss://rokoko.co/video"
+    "url": "https://rokoko.co/video"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Cross-Media & Specialized Converters",
     "name": "Audio2Face",
     "description": "Speech to facial animation.",
-    "url": "httpss://developer.nvidia.com/audio2face"
+    "url": "https://developer.nvidia.com/audio2face"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Cross-Media & Specialized Converters",
     "name": "WavJourney",
     "description": "Audio storytelling visuals.",
-    "url": "httpss://github.com/Audio-AGI/WavJourney"
+    "url": "https://github.com/Audio-AGI/WavJourney"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Cross-Media & Specialized Converters",
     "name": "DocConvert",
     "description": "Format transcoding.",
-    "url": "httpss://github.com/docconvert/docconvert"
+    "url": "https://github.com/docconvert/docconvert"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Cross-Media & Specialized Converters",
     "name": "Any2Vec",
     "description": "Embedding toolkit.",
-    "url": "httpss://github.com/any2vec/any2vec"
+    "url": "https://github.com/any2vec/any2vec"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Cross-Media & Specialized Converters",
     "name": "Vectorize Everything",
     "description": "Multimodal vectors.",
-    "url": "httpss://github.com/jxnl/vectorize-everything"
+    "url": "https://github.com/jxnl/vectorize-everything"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Cross-Media & Specialized Converters",
     "name": "LatentLoom",
     "description": "Style mixing.",
-    "url": "httpss://github.com/justinpinkney/latent-loom"
+    "url": "https://github.com/justinpinkney/latent-loom"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Social Media & Content",
     "name": "Ocoya",
     "description": "AI social media scheduling & content creation.",
-    "url": "httpss://www.ocoya.com"
+    "url": "https://www.ocoya.com"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Social Media & Content",
     "name": "SocialBee",
     "description": "AI-powered content recycling.",
-    "url": "httpss://socialbee.com"
+    "url": "https://socialbee.com"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Social Media & Content",
     "name": "FeedHive",
     "description": "Content recycling & conditional posting.",
-    "url": "httpss://feedhive.io"
+    "url": "https://feedhive.io"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Social Media & Content",
     "name": "Flick",
     "description": "Social media AI copilot.",
-    "url": "httpss://flick.social"
+    "url": "https://flick.social"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Social Media & Content",
     "name": "Predis.ai",
     "description": "AI content generation for social.",
-    "url": "httpss://predis.ai"
+    "url": "https://predis.ai"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Lifestyle & Wellness",
     "name": "Spacely.ai",
     "description": "Professional interior design rendering.",
-    "url": "httpss://www.spacely.ai"
+    "url": "https://www.spacely.ai"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Lifestyle & Wellness",
     "name": "RoomGPT",
     "description": "Personal room redesign.",
-    "url": "httpss://www.roomgpt.io"
+    "url": "https://www.roomgpt.io"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Lifestyle & Wellness",
     "name": "ReRoom AI",
     "description": "Space transformation tool.",
-    "url": "httpss://reroom.ai"
+    "url": "https://reroom.ai"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Lifestyle & Wellness",
     "name": "Planner 5D AI",
     "description": "3D home design.",
-    "url": "httpss://planner5d.com/use/ai-interior-design"
+    "url": "https://planner5d.com/use/ai-interior-design"
   },
   {
     "category": "Generative Media (Creative AI)",
@@ -1176,434 +1176,434 @@ const toolsData = [
     "subcategory": "Lifestyle & Wellness",
     "name": "Homestyler",
     "description": "Online interior design.",
-    "url": "httpss://www.homestyler.com"
+    "url": "https://www.homestyler.com"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Lifestyle & Wellness",
     "name": "ElizaChat",
     "description": "24/7 mental fitness coaching.",
-    "url": "httpss://www.elizachat.com"
+    "url": "https://www.elizachat.com"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Lifestyle & Wellness",
     "name": "Noom",
     "description": "AI + human wellness coaching.",
-    "url": "httpss://www.noom.com"
+    "url": "https://www.noom.com"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Lifestyle & Wellness",
     "name": "Lumen",
     "description": "Metabolic health insights.",
-    "url": "httpss://lumen.me"
+    "url": "https://lumen.me"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Lifestyle & Wellness",
     "name": "MyFitnessPal Premium",
     "description": "AI nutrition coaching.",
-    "url": "httpss://www.myfitnesspal.com"
+    "url": "https://www.myfitnesspal.com"
   },
   {
     "category": "Generative Media (Creative AI)",
     "subcategory": "Lifestyle & Wellness",
     "name": "Headspace Health",
     "description": "Mental wellness AI.",
-    "url": "httpsCSS://www.headspace.com"
+    "url": "https://www.headspace.com"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Code Generation",
     "name": "StableCode",
     "description": "Codegen.",
-    "url": "httpss://stability.ai/stablecode"
+    "url": "https://stability.ai/stablecode"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Code Generation",
     "name": "CodeGen2",
     "description": "OSS coding.",
-    "url": "httpss://github.com/salesforce/CodeGen2"
+    "url": "https://github.com/salesforce/CodeGen2"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Code Generation",
     "name": "WizardCoder",
     "description": "Complex tasks.",
-    "url": "httpss://huggingface.co/WizardLM"
+    "url": "https://huggingface.co/WizardLM"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Code Generation",
     "name": "CodeT5+",
     "description": "Text-to-code.",
-    "url": "httpss://github.com/salesforce/CodeT5"
+    "url": "https://github.com/salesforce/CodeT5"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Code Generation",
     "name": "AlphaCodium",
     "description": "Problem solving.",
-    "url": "httpss://github.com/Codium-ai/AlphaCodium"
+    "url": "https://github.com/Codium-ai/AlphaCodium"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Code Generation",
     "name": "DeepSeek Coder",
     "description": "Multi-language.",
-    "url": "httpss://deepseek.com/coder"
+    "url": "https://deepseek.com/coder"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Code Generation",
     "name": "CodeLLaMA",
     "description": "Fine-tuned.",
-    "url": "httpss://github.com/facebookresearch/codellama"
+    "url": "https://github.com/facebookresearch/codellama"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Code Generation",
     "name": "OpenCodeInterpreter",
     "description": "Execution.",
-    "url": "httpss://opencodeinterpreter.com"
+    "url": "https://opencodeinterpreter.com"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Code Generation",
     "name": "FauxPilot",
     "description": "Self-hosted.",
-    "url": "httpss://github.com/fauxpilot/fauxpilot"
+    "url": "https://github.com/fauxpilot/fauxpilot"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Code Generation",
     "name": "Tabby",
     "description": "OSS alternative.",
-    "url": "httpss://tabby.tabbyml.com"
+    "url": "https://tabby.tabbyml.com"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Code Generation",
     "name": "Codium AI",
     "description": "Test-driven development.",
-    "url": "httpss://codium.ai"
+    "url": "https://codium.ai"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Automation & Agent Frameworks",
     "name": "AutoGen Studio",
     "description": "Multi-agent systems.",
-    "url": "httpss://microsoft.github.io/autogen"
+    "url": "https://microsoft.github.io/autogen"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Automation & Agent Frameworks",
     "name": "CrewAI",
     "description": "Role-based agent teams.",
-    "url": "httpss://www.crewai.com"
+    "url": "https://www.crewai.com"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Automation & Agent Frameworks",
     "name": "LangGraph",
     "description": "Stateful workflow graphs.",
-    "url": "httpss://langchain.com/langgraph"
+    "url": "https://langchain.com/langgraph"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Automation & Agent Frameworks",
     "name": "n8n",
     "description": "Self-hosted workflow automation.",
-    "url": "httpss://n8n.io"
+    "url": "https://n8n.io"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Automation & Agent Frameworks",
     "name": "Trigger.dev",
     "description": "AI workflow deployment platform.",
-    "url": "httpss://trigger.dev"
+    "url": "https://trigger.dev"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Automation & Agent Frameworks",
     "name": "Make",
     "description": "Advanced automation builder.",
-    "url": "httpss://make.com"
+    "url": "https://make.com"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Automation & Agent Frameworks",
     "name": "Axiom AI",
     "description": "Browser automation.",
-    "url": "httpss://axiom.ai"
+    "url": "https://axiom.ai"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Automation & Agent Frameworks",
     "name": "Imagica",
     "description": "Visual scripting.",
-    "url": "httpss://imagica.ai"
+    "url": "https://imagica.ai"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Automation & Agent Frameworks",
     "name": "Robocorp",
     "description": "RPA.",
-    "url": "httpss://robocorp.com"
+    "url": "https://robocorp.com"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Automation & Agent Frameworks",
     "name": "Screen AI",
     "description": "UI understanding.",
-    "url": "httpss://github.com/google-deepmind/screenai"
+    "url": "https://github.com/google-deepmind/screenai"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Automation & Agent Frameworks",
     "name": "TaskMatrix",
     "description": "API integration.",
-    "url": "httpss://github.com/microsoft/TaskMatrix"
+    "url": "https://github.com/microsoft/TaskMatrix"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Automation & Agent Frameworks",
     "name": "AutoSite",
     "description": "Website gen.",
-    "url": "httpss://autosite.dev"
+    "url": "https://autosite.dev"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Automation & Agent Frameworks",
     "name": "LobeChat",
     "description": "Chat-driven actions.",
-    "url": "httpss://lobehub.com"
+    "url": "https://lobehub.com"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Automation & Agent Frameworks",
     "name": "Kognitos",
     "description": "Natural language RPA.",
-    "url": "httpss://kognitos.com"
+    "url": "https://kognitos.com"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Automation & Agent Frameworks",
     "name": "LobeFlow",
     "description": "Workflows.",
-    "url": "httpss://lobeflow.com"
+    "url": "https://lobeflow.com"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Automation & Agent Frameworks",
     "name": "Phidata",
     "description": "AI agents.",
-    "url": "httpss://phidata.com"
+    "url": "https://phidata.com"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Automation & Agent Frameworks",
     "name": "Transformers Agent",
     "description": "Hugging Face agents.",
-    "url": "httpss://huggingface.co/docs/transformers/transformers_agents"
+    "url": "https://huggingface.co/docs/transformers/transformers_agents"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Automation & Agent Frameworks",
     "name": "OpenInterpreter",
     "description": "Local code execution.",
-    "url": "httpss://openinterpreter.com"
+    "url": "https://openinterpreter.com"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Automation & Agent Frameworks",
     "name": "Adept ACT-1",
     "description": "OS-level control.",
-    "url": "httpss://adept.ai/act"
+    "url": "https://adept.ai/act"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Automation & Agent Frameworks",
     "name": "Self-Operating Computer",
     "description": "Full UI automation.",
-    "url": "httpss://github.com/OthersideAl/self-operating-computer"
+    "url": "https://github.com/OthersideAl/self-operating-computer"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Automation & Agent Frameworks",
     "name": "ScreenAgent",
     "description": "Vision-based RPA.",
-    "url": "httpss://github.com/PKU-YuanGroup/ScreenAgent"
+    "url": "https://github.com/PKU-YuanGroup/ScreenAgent"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Automation & Agent Frameworks",
     "name": "E2B Dev Environments",
     "description": "Cloud IDE automation.",
-    "url": "httpss://e2b.dev"
+    "url": "https://e2b.dev"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Automation & Agent Frameworks",
     "name": "Robocorp AI Assistant",
     "description": "Enterprise RPA.",
-    "url": "httpss://robocorp.com/ai-assistant"
+    "url": "https://robocorp.com/ai-assistant"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Automation & Agent Frameworks",
     "name": "Gorilla",
     "description": "API mastery.",
-    "url": "httpss://gorilla.cs.berkeley.edu"
+    "url": "https://gorilla.cs.berkeley.edu"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Automation & Agent Frameworks",
     "name": "OpenDAL",
     "description": "Data abstraction.",
-    "url": "httpss://github.com/apache/opendal"
+    "url": "https://github.com/apache/opendal"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Automation & Agent Frameworks",
     "name": "NeuralCompressor",
     "description": "Model optimization.",
-    "url": "httpss://github.com/intel/neural-compressor"
+    "url": "https://github.com/intel/neural-compressor"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Scientific & Research AI",
     "name": "EvoDiff",
     "description": "Protein generation.",
-    "url": "httpss://github.com/microsoft/evodiff"
+    "url": "https://github.com/microsoft/evodiff"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Scientific & Research AI",
     "name": "Polymathic AI",
     "description": "Scientific modeling.",
-    "url": "httpss://polymathic-ai.org"
+    "url": "https://polymathic-ai.org"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Scientific & Research AI",
     "name": "AlphaFold 3",
     "description": "Protein folding.",
-    "url": "httpss://github.com/google-deepmind/alphafold"
+    "url": "https://github.com/google-deepmind/alphafold"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Scientific & Research AI",
     "name": "Galactica",
     "description": "Research assistant.",
-    "url": "httpss://galactica.org"
+    "url": "https://galactica.org"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Scientific & Research AI",
     "name": "OpenCatalyst",
     "description": "Materials discovery.",
-    "url": "httpss://opencatalystproject.org"
+    "url": "https://opencatalystproject.org"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Scientific & Research AI",
     "name": "SciAI",
     "description": "Paper summarization.",
-    "url": "httpss://sciai.com"
+    "url": "https://sciai.com"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Scientific & Research AI",
     "name": "DeepSparse",
     "description": "Sparse ML.",
-    "url": "httpss://github.com/neuralmagic/deepsparse"
+    "url": "https://github.com/neuralmagic/deepsparse"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Math & Logic",
     "name": "DeepSeek Math",
     "description": "Reasoning.",
-    "url": "httpss://deepseek.com/math"
+    "url": "https://deepseek.com/math"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Math & Logic",
     "name": "LeanDojo",
     "description": "Theorem proving.",
-    "url": "httpss://leandojo.org"
+    "url": "https://leandojo.org"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Math & Logic",
     "name": "CogNexus",
     "description": "Causal discovery.",
-    "url": "httpss://github.com/cognnexus"
+    "url": "https://github.com/cognnexus"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Math & Logic",
     "name": "Lean Copilot",
     "description": "Theorem proving.",
-    "url": "httpss://github.com/lean-dojo/LeanCopilot"
+    "url": "https://github.com/lean-dojo/LeanCopilot"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Math & Logic",
     "name": "AlphaGeometry",
     "description": "Geometry.",
-    "url": "httpss://github.com/google-deepmind/alphageometry"
+    "url": "https://github.com/google-deepmind/alphageometry"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Math & Logic",
     "name": "EukHeur",
     "description": "Math discovery.",
-    "url": "httpss://github.com/fermatslibrary/EukHeur"
+    "url": "https://github.com/fermatslibrary/EukHeur"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Math & Logic",
     "name": "Symbolica",
     "description": "Symbolic math.",
-    "url": "httpss://symbolica.io"
+    "url": "https://symbolica.io"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Math & Logic",
     "name": "MathVista",
     "description": "Visual QA.",
-    "url": "httpss://mathvista.org"
+    "url": "https://mathvista.org"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Math & Logic",
     "name": "MathGLM",
     "description": "Reasoning.",
-    "url": "httpss://huggingface.co/TIGER-Lab/MathGLM"
+    "url": "https://huggingface.co/TIGER-Lab/MathGLM"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Math & Logic",
     "name": "ProofNet",
     "description": "Formal proofs.",
-    "url": "httpss://proofnet.autoai.org"
+    "url": "https://proofnet.autoai.org"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Math & Logic",
     "name": "CoqHammer",
     "description": "Automation.",
-    "url": "httpss://github.com/lukaszcz/coqhammer"
+    "url": "https://github.com/lukaszcz/coqhammer"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Math & Logic",
     "name": "TensorDeduce",
     "description": "Equation solving.",
-    "url": "httpss://github.com/tensordeduce/tensordeduce"
+    "url": "https://github.com/tensordeduce/tensordeduce"
   },
   {
     "category": "Development & Technical AI",
@@ -1617,245 +1617,245 @@ const toolsData = [
     "subcategory": "Math & Logic",
     "name": "Eureka",
     "description": "Robotics.",
-    "url": "httpss://eureka-research.github.io"
+    "url": "https://eureka-research.github.io"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Security & Privacy",
     "name": "PrivateGPT",
     "description": "Local inference.",
-    "url": "httpss://github.com/imartinez/privateGPT"
+    "url": "https://github.com/imartinez/privateGPT"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Security & Privacy",
     "name": "LainBox",
     "description": "Encrypted AI.",
-    "url": "httpss://lainbox.com"
+    "url": "https://lainbox.com"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Security & Privacy",
     "name": "Confidential AI",
     "description": "Secure enclaves.",
-    "url": "httpss://confidential-ai.org"
+    "url": "https://confidential-ai.org"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Security & Privacy",
     "name": "Mithril Shield",
     "description": "Model protection.",
-    "url": "httpsCSS://github.com/mithril-security/mithril-shield"
+    "url": "https://github.com/mithril-security/mithril-shield"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Security & Privacy",
     "name": "FederatedScope",
     "description": "Federated learning.",
-    "url": "httpss://github.com/alibaba/FederatedScope"
+    "url": "https://github.com/alibaba/FederatedScope"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Security & Privacy",
     "name": "CipherCore",
     "description": "Secure computation.",
-    "url": "httpss://ciphercore.ai"
+    "url": "https://ciphercore.ai"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Security & Privacy",
     "name": "ShadowML",
     "description": "Privacy-preserving.",
-    "url": "httpss://shadowml.org"
+    "url": "https://shadowml.org"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Security & Privacy",
     "name": "Soteria",
     "description": "Model security.",
-    "url": "httpss://github.com/ainetworks/soteria"
+    "url": "https://github.com/ainetworks/soteria"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Security & Privacy",
     "name": "Armory ML",
     "description": "Adversarial robustness.",
-    "url": "httpss://github.com/twosixlabs/armory"
+    "url": "https://github.com/twosixlabs/armory"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Security & Privacy",
     "name": "Lockdown AI",
     "description": "Data anonymization.",
-    "url": "httpss://lockdown-ai.com"
+    "url": "https://lockdown-ai.com"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Security & Privacy",
     "name": "Deepware Scanner",
     "description": "Deepfake detection.",
-    "url": "httpss://deepware.ai/scanner"
+    "url": "https://deepware.ai/scanner"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Security & Privacy",
     "name": "Sensity Guard",
     "description": "NSFW content filter.",
-    "url": "httpss://sensity.ai/guard"
+    "url": "https://sensity.ai/guard"
   },
   {
-    "category":CSS: "Development & Technical AI",
+    "category": "Development & Technical AI",
     "subcategory": "Security & Privacy",
     "name": "Reality Defender",
     "description": "Media authentication.",
-    "url": "httpss://realitydefender.com"
+    "url": "https://realitydefender.com"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Security & Privacy",
     "name": "Amber Authenticate",
     "description": "Content provenance.",
-    "url": "httpss://ambervideo.ai"
+    "url": "https://ambervideo.ai"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Hyperlocal & Specialized Language Models",
     "name": "Jais",
     "description": "Arabic LLM.",
-    "url": "httpss://huggingface.co/core42/jais"
+    "url": "https://huggingface.co/core42/jais"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Hyperlocal & Specialized Language Models",
     "name": "BLOOMChat",
     "description": "Multilingual.",
-    "url": "httpss://huggingface.co/sambanovasystems/BLOOMChat"
+    "url": "https://huggingface.co/sambanovasystems/BLOOMChat"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Hyperlocal & Specialized Language Models",
     "name": "Cerebras-GPT",
     "description": "African languages.",
-    "url": "httpss://cerebras.net/cerebras-gpt"
+    "url": "https://cerebras.net/cerebras-gpt"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Hyperlocal & Specialized Language Models",
     "name": "Indic Trans2",
     "description": "Indian languages.",
-    "url": "httpss://github.com/AI4Bharat/IndicTrans2"
+    "url": "https://github.com/AI4Bharat/IndicTrans2"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Hyperlocal & Specialized Language Models",
     "name": "SeaLLM",
     "description": "Southeast Asia.",
-    "url": "httpss://github.com/SeaLLMs/SeaLLM"
+    "url": "https://github.com/SeaLLMs/SeaLLM"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Hyperlocal & Specialized Language Models",
     "name": "BakLLAVA",
     "description": "Icelandic.",
-    "url": "httpss://github.com/mayaeh/bakllava"
+    "url": "https://github.com/mayaeh/bakllava"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Hyperlocal & Specialized Language Models",
     "name": "Trelis Thai",
     "description": "Thai.",
-    "url": "httpss://huggingface.co/trelis"
+    "url": "https://huggingface.co/trelis"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Hyperlocal & Specialized Language Models",
     "name": "Feloof",
     "description": "Egyptian Arabic.",
-    "url": "httpss://feloof.ai"
+    "url": "https://feloof.ai"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Hyperlocal & Specialized Language Models",
     "name": "Sanskrit Sandhan",
     "description": "Sanskrit.",
-    "url": "httpss://github.com/avinashvarma/Sanskrit-Sandhan"
+    "url": "https://github.com/avinashvarma/Sanskrit-Sandhan"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Hyperlocal & Specialized Language Models",
     "name": "RUBERT",
     "description": "Russian.",
-    "url": "httpss://github.com/ai-forever/ruBert"
+    "url": "https://github.com/ai-forever/ruBert"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Plugin & Script Development",
     "name": "PluginCrafter",
     "description": "AE/Premiere scripts.",
-    "url": "httpss://plugincrafter.ai"
+    "url": "https://plugincrafter.ai"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Plugin & Script Development",
     "name": "ResolveCoder",
     "description": "DaVinci Fusion macros.",
-    "url": "httpss://resolvecoder.dev"
+    "url": "https://resolvecoder.dev"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Plugin & Script Development",
     "name": "Adobe Ghostwriter",
     "description": "CC plugin generator.",
-    "url": "httpss://adobe.io/ghostwriter"
+    "url": "https://adobe.io/ghostwriter"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Plugin & Script Development",
     "name": "CinemaGPT",
     "description": "3D software scripts.",
-    "url": "httpss://cinemagpt.com"
+    "url": "https://cinemagpt.com"
   },
   {
     "category": "Development & Technical AI",
     "subcategory": "Plugin & Script Development",
     "name": "Figma2Code",
     "description": "Design-to-development.",
-    "url": "httpss://figma2code.io"
+    "url": "https://figma2code.io"
   },
   {
     "category": "XR, 3D & Game Development",
     "subcategory": "Image-to-3D Conversion",
     "name": "Kaedim",
     "description": "Single-image to 3D model.",
-    "url": "httpss://kaedim3d.com"
+    "url": "httpsks://kaedim3d.com"
   },
   {
     "category": "XR, 3D & Game Development",
     "subcategory": "Image-to-3D Conversion",
     "name": "TripoSR",
     "description": "Instant 3D from images.",
-    "url": "httpss://tripo3d.ai"
+    "url": "https://tripo3d.ai"
   },
   {
     "category": "XR, 3D & Game Development",
     "subcategory": "Image-to-3D Conversion",
     "name": "Luma Dream Machine",
     "description": "Video-to-3D capture.",
-    "url": "httpss://lumalabs.ai/dream-machine"
+    "url": "https://lumalabs.ai/dream-machine"
   },
   {
     "category": "XR, 3D & Game Development",
     "subcategory": "Image-to-3D Conversion",
     "name": "GET3D",
     "description": "NVIDIA's image-to-3D.",
-    "url": "httpss://nv-tlabs.github.io/GET3D"
+    "url": "https://nv-tlabs.github.io/GET3D"
   },
   {
     "category": "XR, 3D & Game Development",
     "subcategory": "Image-to-3D Conversion",
     "name": "Meshcapade",
     "description": "Body shape reconstruction.",
-    "url": "httpss://meshcapade.com"
+    "url": "httpsks://meshcapade.com"
   },
   {
     "category": "XR, 3D & Game Development",
@@ -2107,7 +2107,7 @@ const toolsData = [
     "subcategory": "Browser-Based & WebXR Game Creation",
     "name": "Phaser Wizard",
     "description": "AI for Phaser.js games.",
-    "url": "httpshttps://phaserwizard.com"
+    "url": "httpss://phaserwizard.com"
   },
   {
     "category": "XR, 3D & Game Development",
@@ -2170,7 +2170,7 @@ const toolsData = [
     "subcategory": "Face & Body Manipulation (Ethical Warning)",
     "name": "DeepPrivacy2",
     "description": "Anonymization research.",
-    "url": "httpsCSS://github.com/hukkelas/DeepPrivacy2"
+    "url": "httpss://github.com/hukkelas/DeepPrivacy2"
   },
   {
     "category": "XR, 3D & Game Development",
@@ -2198,6 +2198,6 @@ const toolsData = [
     "subcategory": "Face & Body Manipulation (Ethical Warning)",
     "name": "DeepFashion2",
     "description": "Dataset.",
-    "url": "https://github.com/switchablenorms/DeepFashion2"
+    "url": "httpss://github.com/switchablenorms/DeepFashion2"
   }
 ]
