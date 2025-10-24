@@ -1,11 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     // This check is to make sure tools.js loaded first
-    // If it did, toolsData will exist, and we can run the app.
     if (typeof toolsData !== 'undefined' && toolsData.length > 0) {
         initializeApp();
     } else {
-        // This will only show in the browser's F12 console, not on the page.
         console.error("FATAL ERROR: `toolsData` is not defined or is empty.");
         console.error("This means the `tools.js` file failed to load, is empty, or has a syntax error.");
     }
@@ -31,8 +29,13 @@ function initializeApp() {
     const noResultsMessage = document.getElementById('no-results-message');
     const menuToggle = document.getElementById('menu-toggle');
     const sidebar = document.getElementById('sidebar');
-    const filterTagsContainer = document.getElementById('filter-tags');
     const backToTopButton = document.getElementById('back-to-top');
+    
+    // New Dropdown Filter Elements
+    const filterDropdown = document.getElementById('filter-dropdown');
+    const filterToggleButton = document.getElementById('filter-toggle-button');
+    const filterCurrentSelection = document.getElementById('filter-current-selection');
+    const filterTagsList = document.getElementById('filter-tags-list');
 
     // Store all subcategories for tag generation
     const allSubcategories = [...new Set(toolsData.map(tool => tool.subcategory))].sort();
@@ -66,6 +69,7 @@ function initializeApp() {
         });
 
         // 2. Build and inject the HTML
+        let isFirstCategory = true;
         for (const [categoryName, subcategories] of categories.entries()) {
             
             const categoryId = categoryName.toLowerCase().replace(/[^a-z0-9]+/g, '-');
@@ -79,28 +83,40 @@ function initializeApp() {
             // B. Create Main Category Section
             const categorySection = document.createElement('section');
             categorySection.id = categoryId;
-            categorySection.className = 'category-section';
-            
+            // NEW: Add 'expanded' class to the first category
+            categorySection.className = isFirstCategory ? 'category-section expanded' : 'category-section';
+
+            // C. Create Category Header (now a button for the drawer)
             const categoryHeader = document.createElement('h2');
-            categoryHeader.innerHTML = `<i class="${iconClass}"></i> ${categoryName}`;
+            categoryHeader.innerHTML = `
+                <span><i class="${iconClass}"></i> ${categoryName}</span>
+                <i class="fa-solid fa-chevron-down drawer-chevron"></i>
+            `;
+            // NEW: Add click listener for the drawer
+            categoryHeader.addEventListener('click', () => {
+                categorySection.classList.toggle('expanded');
+            });
             categorySection.appendChild(categoryHeader);
 
-            // C. Create Subcategory Sections
+            // D. Create the content wrapper for the drawer
+            const categoryContent = document.createElement('div');
+            categoryContent.className = 'category-content';
+
+            // E. Create Subcategory Sections
             for (const [subcategoryName, toolList] of subcategories.entries()) {
                 const subcategoryTitle = document.createElement('h3');
                 subcategoryTitle.className = 'subcategory-title';
                 subcategoryTitle.textContent = subcategoryName;
-                categorySection.appendChild(subcategoryTitle);
+                categoryContent.appendChild(subcategoryTitle); // Add to content wrapper
 
                 const toolGrid = document.createElement('div');
                 toolGrid.className = 'tool-grid';
 
-                // D. Create Tool Cards
+                // F. Create Tool Cards
                 toolList.forEach(tool => {
                     const toolCard = document.createElement('div');
                     toolCard.className = 'tool-card';
                     
-                    // Apply staggered animation delay
                     toolCard.style.animationDelay = `${cardAnimationDelayIndex * 0.04}s`;
                     cardAnimationDelayIndex++;
                     
@@ -114,26 +130,29 @@ function initializeApp() {
                     toolGrid.appendChild(toolCard);
                 });
 
-                categorySection.appendChild(toolGrid);
+                categoryContent.appendChild(toolGrid); // Add to content wrapper
             }
-            toolCatalog.appendChild(categorySection);
+            categorySection.appendChild(categoryContent); // Add wrapper to section
+            toolCatalog.appendChild(categorySection); // Add section to page
+            
+            isFirstCategory = false; // Only first category is expanded
         }
         
         addSidebarLinkListeners();
     }
 
     /**
-     * Generates the clickable filter tags
+     * Generates the clickable filter tags inside the dropdown
      */
     function renderFilterTags() {
-        filterTagsContainer.innerHTML = ''; // Clear existing tags
+        filterTagsList.innerHTML = ''; // Clear existing tags
         
         // 1. Create "All" tag
         const allTag = document.createElement('button');
         allTag.className = 'filter-tag active'; // Active by default
         allTag.textContent = 'All Tools';
         allTag.dataset.filter = 'All';
-        filterTagsContainer.appendChild(allTag);
+        filterTagsList.appendChild(allTag);
 
         // 2. Create tags for each subcategory
         allSubcategories.forEach(subcategory => {
@@ -141,11 +160,11 @@ function initializeApp() {
             tag.className = 'filter-tag';
             tag.textContent = subcategory;
             tag.dataset.filter = subcategory;
-            filterTagsContainer.appendChild(tag);
+            filterTagsList.appendChild(tag);
         });
 
-        // 3. Add click listener to the tag container (event delegation)
-        filterTagsContainer.addEventListener('click', (e) => {
+        // 3. Add click listener to the tag list (event delegation)
+        filterTagsList.addEventListener('click', (e) => {
             if (e.target.classList.contains('filter-tag')) {
                 handleTagClick(e.target);
             }
@@ -156,17 +175,24 @@ function initializeApp() {
      * Handles the logic when a filter tag is clicked
      */
     function handleTagClick(clickedTag) {
-        // 1. Update active state
-        filterTagsContainer.querySelectorAll('.filter-tag').forEach(tag => {
+        // 1. Update active state in list
+        filterTagsList.querySelectorAll('.filter-tag').forEach(tag => {
             tag.classList.remove('active');
         });
         clickedTag.classList.add('active');
+        
+        // 2. Update toggle button text
+        filterCurrentSelection.textContent = clickedTag.textContent;
 
-        // 2. Get filter value and clear search bar
+        // 3. Close the dropdown
+        filterTagsList.classList.remove('active');
+        filterToggleButton.classList.remove('active');
+
+        // 4. Get filter value and clear search bar
         const filter = clickedTag.dataset.filter;
         searchBar.value = ''; // Clear search
 
-        // 3. Filter tools and re-render
+        // 5. Filter tools and re-render
         let filteredTools;
         if (filter === 'All') {
             filteredTools = toolsData;
@@ -182,16 +208,13 @@ function initializeApp() {
     searchBar.addEventListener('keyup', (e) => {
         const searchTerm = e.target.value.toLowerCase();
         
-        // Deactivate all tags
-        filterTagsContainer.querySelectorAll('.filter-tag').forEach(tag => {
+        // Reset dropdown to "All Tools"
+        filterTagsList.querySelectorAll('.filter-tag').forEach(tag => {
             tag.classList.remove('active');
         });
-        
-        // Activate "All" tag
-        const allTag = filterTagsContainer.querySelector('.filter-tag[data-filter="All"]');
-        if (allTag) {
-            allTag.classList.add('active');
-        }
+        const allTag = filterTagsList.querySelector('.filter-tag[data-filter="All"]');
+        if (allTag) allTag.classList.add('active');
+        filterCurrentSelection.textContent = 'All Tools';
 
         // Filter and re-render
         const filteredTools = toolsData.filter(tool => {
@@ -207,8 +230,25 @@ function initializeApp() {
             if (sidebar) sidebar.classList.toggle('active');
         });
     }
+    
+    // 3. NEW: Dropdown Toggle Button
+    if (filterToggleButton) {
+        filterToggleButton.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevents "click outside" from firing
+            filterTagsList.classList.toggle('active');
+            filterToggleButton.classList.toggle('active');
+        });
+    }
 
-    // 3. Close sidebar on link click (for mobile)
+    // 4. NEW: Click outside to close dropdown
+    window.addEventListener('click', () => {
+        if (filterTagsList.classList.contains('active')) {
+            filterTagsList.classList.remove('active');
+            filterToggleButton.classList.remove('active');
+        }
+    });
+
+    // 5. Close sidebar on link click (for mobile)
     function addSidebarLinkListeners() {
         sidebarLinksContainer.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
@@ -219,7 +259,7 @@ function initializeApp() {
         });
     }
 
-    // 4. Back to Top Button Listeners
+    // 6. Back to Top Button Listeners
     if (backToTopButton) {
         window.addEventListener('scroll', () => {
             if (window.scrollY > 300) {
@@ -239,8 +279,7 @@ function initializeApp() {
     }
     
     // === Initial Page Load ===
-    // Check if all elements exist before running
-    if (toolCatalog && sidebarLinksContainer && searchBar && noResultsMessage && filterTagsContainer) {
+    if (toolCatalog && sidebarLinksContainer && searchBar && noResultsMessage && filterTagsList) {
         renderFilterTags();   // Build the tags once
         renderCatalog(toolsData); // Render the full catalog
     } else {
