@@ -1,86 +1,147 @@
-// Wait for the DOM to be fully loaded before running scripts
 document.addEventListener('DOMContentLoaded', () => {
+    
+    // === Icon Mapping for Categories ===
+    // Maps your category names to Font Awesome icons
+    const categoryIcons = {
+        "Business & Enterprise AI": "fa-solid fa-briefcase",
+        "Productivity & Collaboration": "fa-solid fa-gears",
+        "Generative Media (Creative AI)": "fa-solid fa-palette",
+        "Development & Technical AI": "fa-solid fa-code",
+        "XR, 3D & Game Development": "fa-solid fa-vr-cardboard"
+    };
 
-    // === Mobile Sidebar Toggle ===
+    // === Get DOM Elements ===
+    const toolCatalog = document.getElementById('tool-catalog');
+    const sidebarLinksContainer = document.getElementById('sidebar-links');
+    const searchBar = document.getElementById('search-bar');
+    const noResultsMessage = document.getElementById('no-results-message');
     const menuToggle = document.getElementById('menu-toggle');
     const sidebar = document.getElementById('sidebar');
 
-    if (menuToggle && sidebar) {
-        menuToggle.addEventListener('click', () => {
-            sidebar.classList.toggle('active');
+    /**
+     * Renders the entire tool catalog based on the provided tool data.
+     * @param {Array} tools - An array of tool objects to render.
+     */
+    function renderCatalog(tools) {
+        // Clear existing content
+        toolCatalog.innerHTML = '';
+        sidebarLinksContainer.innerHTML = '';
+
+        if (tools.length === 0) {
+            noResultsMessage.style.display = 'block';
+            return;
+        }
+        noResultsMessage.style.display = 'none';
+
+        // 1. Group tools by category and subcategory
+        const categories = new Map();
+        tools.forEach(tool => {
+            if (!categories.has(tool.category)) {
+                categories.set(tool.category, new Map());
+            }
+            if (!categories.get(tool.category).has(tool.subcategory)) {
+                categories.get(tool.category).set(tool.subcategory, []);
+            }
+            categories.get(tool.category).get(tool.subcategory).push(tool);
+        });
+
+        // 2. Build and inject the HTML
+        for (const [categoryName, subcategories] of categories.entries()) {
+            
+            // Create ID for linking (e.g., "Business & Enterprise AI" -> "business-enterprise-ai")
+            const categoryId = categoryName.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+            const iconClass = categoryIcons[categoryName] || 'fa-solid fa-atom'; // Default icon
+
+            // A. Create Sidebar Link
+            const sidebarLink = document.createElement('li');
+            sidebarLink.innerHTML = `<a href="#${categoryId}"><i class="${iconClass}"></i> ${categoryName}</a>`;
+            sidebarLinksContainer.appendChild(sidebarLink);
+
+            // B. Create Main Category Section
+            const categorySection = document.createElement('section');
+            categorySection.id = categoryId;
+            categorySection.className = 'category-section';
+            
+            const categoryHeader = document.createElement('h2');
+            categoryHeader.innerHTML = `<i class="${iconClass}"></i> ${categoryName}`;
+            categorySection.appendChild(categoryHeader);
+
+            // C. Create Subcategory Sections
+            for (const [subcategoryName, toolList] of subcategories.entries()) {
+                const subcategoryTitle = document.createElement('h3');
+                subcategoryTitle.className = 'subcategory-title';
+                subcategoryTitle.textContent = subcategoryName;
+                categorySection.appendChild(subcategoryTitle);
+
+                const toolGrid = document.createElement('div');
+                toolGrid.className = 'tool-grid';
+
+                // D. Create Tool Cards
+                toolList.forEach(tool => {
+                    const toolCard = document.createElement('div');
+                    toolCard.className = 'tool-card';
+                    toolCard.innerHTML = `
+                        <h4>${tool.name}</h4>
+                        <p>${tool.description}</p>
+                        <a href="${tool.url}" target="_blank" class="tool-link">
+                            Visit Site <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    `;
+                    toolGrid.appendChild(toolCard);
+                });
+
+                categorySection.appendChild(toolGrid);
+            }
+            toolCatalog.appendChild(categorySection);
+        }
+        
+        // Re-add mobile sidebar link functionality
+        addSidebarLinkListeners();
+    }
+
+    /**
+     * Filters the master tool list based on the search term.
+     * @param {string} searchTerm - The text to search for.
+     * @returns {Array} - A filtered array of tool objects.
+     */
+    function filterTools(searchTerm) {
+        searchTerm = searchTerm.toLowerCase();
+        return toolsData.filter(tool => {
+            const nameMatch = tool.name.toLowerCase().includes(searchTerm);
+            const descriptionMatch = tool.description.toLowerCase().includes(searchTerm);
+            const categoryMatch = tool.category.toLowerCase().includes(searchTerm);
+            const subcategoryMatch = tool.subcategory.toLowerCase().includes(searchTerm);
+            return nameMatch || descriptionMatch || categoryMatch || subcategoryMatch;
         });
     }
-    
-    // Close sidebar when a link is clicked on mobile
-    const sidebarLinks = document.querySelectorAll('.sidebar-links a');
-    sidebarLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (window.innerWidth <= 900) {
-                sidebar.classList.remove('active');
-            }
-        });
+
+    // === Event Listeners ===
+
+    // 1. Live Search
+    searchBar.addEventListener('keyup', (e) => {
+        const searchTerm = e.target.value;
+        const filteredTools = filterTools(searchTerm);
+        renderCatalog(filteredTools);
     });
 
-    // === Live Search Functionality ===
-    const searchBar = document.getElementById('search-bar');
-    const toolCards = document.querySelectorAll('.tool-card');
-    const categorySections = document.querySelectorAll('.category-section');
-    const subcategoryTitles = document.querySelectorAll('.subcategory-title');
-    const noResultsMessage = document.getElementById('no-results-message');
+    // 2. Mobile Sidebar Toggle
+    menuToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('active');
+    });
 
-    if (searchBar) {
-        searchBar.addEventListener('keyup', (e) => {
-            const searchTerm = e.target.value.toLowerCase();
-            let visibleCardsCount = 0;
-
-            // 1. Filter individual tool cards
-            toolCards.forEach(card => {
-                const title = card.querySelector('h4').textContent.toLowerCase();
-                const description = card.querySelector('p').textContent.toLowerCase();
-                const cardText = title + description;
-
-                if (cardText.includes(searchTerm)) {
-                    card.style.display = 'flex'; // Show card
-                    visibleCardsCount++;
-                } else {
-                    card.style.display = 'none'; // Hide card
+    // 3. Close sidebar on link click (for mobile)
+    function addSidebarLinkListeners() {
+        const sidebarLinks = document.querySelectorAll('.sidebar-links a');
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 900) {
+                    sidebar.classList.remove('active');
                 }
             });
-
-            // 2. Filter subcategory titles
-            subcategoryTitles.forEach(title => {
-                // Find the next .tool-grid
-                const grid = title.nextElementSibling;
-                if (grid && grid.classList.contains('tool-grid')) {
-                    // Check if any children (cards) in this grid are visible
-                    const visibleCardsInGrid = grid.querySelectorAll('.tool-card[style*="display: flex"]').length;
-                    
-                    if (visibleCardsInGrid > 0) {
-                        title.style.display = 'block'; // Show sub-title
-                    } else {
-                        title.style.display = 'none'; // Hide sub-title
-                    }
-                }
-            });
-
-            // 3. Filter main category sections
-            categorySections.forEach(section => {
-                // Check if any children (cards) in this section are visible
-                const visibleCardsInSection = section.querySelectorAll('.tool-card[style*="display: flex"]').length;
-                
-                if (visibleCardsInSection > 0) {
-                    section.style.display = 'block'; // Show section
-                } else {
-                    section.style.display = 'none'; // Hide section
-                }
-            });
-
-            // 4. Show 'No Results' message if no cards are visible at all
-            if (visibleCardsCount === 0) {
-                noResultsMessage.style.display = 'block';
-            } else {
-                noResultsMessage.style.display = 'none';
-            }
         });
     }
+
+    // === Initial Page Load ===
+    // Render the full catalog when the page first loads
+    renderCatalog(toolsData);
 });
