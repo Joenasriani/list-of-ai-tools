@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     // === Icon Mapping for Categories ===
-    // Maps your category names to Font Awesome icons
     const categoryIcons = {
         "Business & Enterprise AI": "fa-solid fa-briefcase",
         "Productivity & Collaboration": "fa-solid fa-gears",
@@ -17,15 +16,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const noResultsMessage = document.getElementById('no-results-message');
     const menuToggle = document.getElementById('menu-toggle');
     const sidebar = document.getElementById('sidebar');
+    const filterTagsContainer = document.getElementById('filter-tags'); // New
+    const backToTopButton = document.getElementById('back-to-top');   // New
+
+    // Store all subcategories for tag generation
+    const allSubcategories = [...new Set(toolsData.map(tool => tool.subcategory))].sort();
 
     /**
      * Renders the entire tool catalog based on the provided tool data.
-     * @param {Array} tools - An array of tool objects to render.
      */
     function renderCatalog(tools) {
-        // Clear existing content
-        toolCatalog.innerHTML = '';
+        // Clear only the tool content, not the tag header
+        toolCatalog.querySelectorAll('.category-section').forEach(el => el.remove());
         sidebarLinksContainer.innerHTML = '';
+        
+        let cardAnimationDelayIndex = 0; // For staggered animation
 
         if (tools.length === 0) {
             noResultsMessage.style.display = 'block';
@@ -48,9 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // 2. Build and inject the HTML
         for (const [categoryName, subcategories] of categories.entries()) {
             
-            // Create ID for linking (e.g., "Business & Enterprise AI" -> "business-enterprise-ai")
             const categoryId = categoryName.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-            const iconClass = categoryIcons[categoryName] || 'fa-solid fa-atom'; // Default icon
+            const iconClass = categoryIcons[categoryName] || 'fa-solid fa-atom';
 
             // A. Create Sidebar Link
             const sidebarLink = document.createElement('li');
@@ -80,6 +84,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 toolList.forEach(tool => {
                     const toolCard = document.createElement('div');
                     toolCard.className = 'tool-card';
+                    
+                    // NEW: Apply staggered animation delay
+                    toolCard.style.animationDelay = `${cardAnimationDelayIndex * 0.04}s`;
+                    cardAnimationDelayIndex++;
+                    
                     toolCard.innerHTML = `
                         <h4>${tool.name}</h4>
                         <p>${tool.description}</p>
@@ -95,32 +104,80 @@ document.addEventListener('DOMContentLoaded', () => {
             toolCatalog.appendChild(categorySection);
         }
         
-        // Re-add mobile sidebar link functionality
         addSidebarLinkListeners();
     }
 
     /**
-     * Filters the master tool list based on the search term.
-     * @param {string} searchTerm - The text to search for.
-     * @returns {Array} - A filtered array of tool objects.
+     * Generates the clickable filter tags
      */
-    function filterTools(searchTerm) {
-        searchTerm = searchTerm.toLowerCase();
-        return toolsData.filter(tool => {
-            const nameMatch = tool.name.toLowerCase().includes(searchTerm);
-            const descriptionMatch = tool.description.toLowerCase().includes(searchTerm);
-            const categoryMatch = tool.category.toLowerCase().includes(searchTerm);
-            const subcategoryMatch = tool.subcategory.toLowerCase().includes(searchTerm);
-            return nameMatch || descriptionMatch || categoryMatch || subcategoryMatch;
+    function renderFilterTags() {
+        filterTagsContainer.innerHTML = ''; // Clear existing tags
+        
+        // 1. Create "All" tag
+        const allTag = document.createElement('button');
+        allTag.className = 'filter-tag active'; // Active by default
+        allTag.textContent = 'All Tools';
+        allTag.dataset.filter = 'All';
+        filterTagsContainer.appendChild(allTag);
+
+        // 2. Create tags for each subcategory
+        allSubcategories.forEach(subcategory => {
+            const tag = document.createElement('button');
+            tag.className = 'filter-tag';
+            tag.textContent = subcategory;
+            tag.dataset.filter = subcategory;
+            filterTagsContainer.appendChild(tag);
         });
+
+        // 3. Add click listener to the tag container (event delegation)
+        filterTagsContainer.addEventListener('click', (e) => {
+            if (e.target.classList.contains('filter-tag')) {
+                handleTagClick(e.target);
+            }
+        });
+    }
+
+    /**
+     * Handles the logic when a filter tag is clicked
+     */
+    function handleTagClick(clickedTag) {
+        // 1. Update active state
+        filterTagsContainer.querySelectorAll('.filter-tag').forEach(tag => {
+            tag.classList.remove('active');
+        });
+        clickedTag.classList.add('active');
+
+        // 2. Get filter value and clear search bar
+        const filter = clickedTag.dataset.filter;
+        searchBar.value = ''; // Clear search
+
+        // 3. Filter tools and re-render
+        let filteredTools;
+        if (filter === 'All') {
+            filteredTools = toolsData;
+        } else {
+            filteredTools = toolsData.filter(tool => tool.subcategory === filter);
+        }
+        renderCatalog(filteredTools);
     }
 
     // === Event Listeners ===
 
     // 1. Live Search
     searchBar.addEventListener('keyup', (e) => {
-        const searchTerm = e.target.value;
-        const filteredTools = filterTools(searchTerm);
+        const searchTerm = e.target.value.toLowerCase();
+        
+        // Deactivate all tags and activate "All"
+        filterTagsContainer.querySelectorAll('.filter-tag').forEach(tag => {
+            tag.classList.remove('active');
+        });
+        filterTagsContainer.querySelector('.filter-tag[data-filter="All"]').classList.add('active');
+
+        // Filter and re-render
+        const filteredTools = toolsData.filter(tool => {
+            return tool.name.toLowerCase().includes(searchTerm) ||
+                   tool.description.toLowerCase().includes(searchTerm);
+        });
         renderCatalog(filteredTools);
     });
 
@@ -131,8 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. Close sidebar on link click (for mobile)
     function addSidebarLinkListeners() {
-        const sidebarLinks = document.querySelectorAll('.sidebar-links a');
-        sidebarLinks.forEach(link => {
+        sidebarLinksContainer.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 if (window.innerWidth <= 900) {
                     sidebar.classList.remove('active');
@@ -141,7 +197,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // 4. Back to Top Button Listeners
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
+    });
+
+    backToTopButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
     // === Initial Page Load ===
+    renderFilterTags();   // Build the tags once
+    renderCatalog(toolsData); // Render the full catalog
+});
     // Render the full catalog when the page first loads
     renderCatalog(toolsData);
 });
